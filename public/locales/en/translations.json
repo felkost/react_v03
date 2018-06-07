@@ -1,0 +1,25 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to Angle !"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    }
+  },
+  "sidebar": {
+    "WELCOME": "Welcome",
+    "heading": {
+      "HEADER": "Main Navigation"
+    },
+    "nav": {
+      "CONTENTCREATOR": "Content Creator",
+      "CAMPAIGNS": "Campaigns",
+      "ANALITICS": "Analitics",
+      "menu": {
+        "MENU": "Menu",
+        "SUBMENU": "Sub Menu"
+      }
+    }
+  }
+}
