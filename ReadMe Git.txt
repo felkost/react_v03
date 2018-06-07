@@ -1,0 +1,1 @@
+https://tproger.ru/translations/most-common-git-screwupsquestions-and-solutions/
