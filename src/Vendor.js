@@ -1,7 +1,7 @@
 // Modernizr
 import './modernizr.js';
 // Whirl
-import 'whirl/dist/whirl.css';
+//import 'whirl/dist/whirl.css';
 // Font Awesome
 import 'font-awesome/css/font-awesome.min.css';
 // Animate.CSS

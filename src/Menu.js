@@ -16,6 +16,12 @@ const Menu = [
         path: '/analitics',
         icon : 'icon-chart',
         translate: 'sidebar.nav.ANALITICS'
+    },
+    {
+        name: 'Questionnaire',
+        path: '/questionnaire',
+        icon : 'icon-chart',
+        translate: 'sidebar.nav.QUESTIONNAIRE'
     }
 ];
 

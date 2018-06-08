@@ -6,11 +6,15 @@ import auth from './Auth/auth';
 import campaigns from './Campaigns/campaigns';
 import slides from './Campaigns/slides';
 
+import rToolsState from './Quiz/rToolsState';
+
 export default combineReducers({
     auth,    
     layouts,
     textpanels,
     toolbar,
     campaigns,
-    slides
+    slides,
+
+    rToolsState
 });
