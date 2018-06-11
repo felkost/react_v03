@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import ContentWrapper from '../Layout/ContentWrapper';
-import { Row, Col, Card, CardTitle, CardBody, CardHeader, CardText, Input, FormGroup, Button } from 'reactstrap';
+import { Row, Col, Card, CardBody, CardHeader, ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 import { connect } from 'react-redux';
 import {actionAddBlockToList, actionDelBlockFromList} from '../../actions/Quiz/QuizAction'
 
 class QuizChooseBlocks extends Component{
     handleAddBlock = (e) => {
+        //console.log(e.target);
         this.props.addBlock(e.target.id)
     }
-
-    handleDelBlock = (e) => {
-        this.props.delBlock(e.target.id)
-    }
-  //<button id={i} onClick={this.handleDelBlock}>Del</button>
 
     render(){
         return(
@@ -21,16 +17,21 @@ class QuizChooseBlocks extends Component{
             <CardHeader className="text-white bg-primary">Choose block from list</CardHeader>
             <CardBody>
                         <Row><Col>
-                        <ul className="list-group">
+                        <ListGroup>
                         {this.props.listBloks.map((block, i) =>
-                            <li key={i} >
-                                {block}
-                                <button id={i} onClick={this.handleAddBlock}>Add</button>
-                                
-                            </li>
+                            <ListGroupItem key={i} >
+                                <Row className="align-items-center">
+                                    <Col ><em className="fa fa-reorder fa-fw text-muted mr-lg"></em>{block}</Col>
+                                    <Col md={3}>
+                                        <button color="secondary" className="btn-oval" id={i}  onClick={this.handleAddBlock}>
+                                            <i className="icon-plus" id={i}></i>
+                                        </button>
+                                    </Col>                                
+                                </Row>    
+                            </ListGroupItem>
                         )                            
                         }
-                        </ul>                   
+                        </ListGroup>                   
                         </Col></Row>
         </CardBody>
         </Card>

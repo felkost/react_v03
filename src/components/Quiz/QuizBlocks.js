@@ -6,20 +6,19 @@ import { Row, Col, Card, CardTitle, CardBody, CardHeader, ListGroup, ListGroupIt
 import QuizItemBlock from './QuizItemBlock';
 
 import {actionUpdateOrderListBloks} from '../../actions/Quiz/QuizAction'
-
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
-const SortableItem = SortableElement(({value}) =>
-  <li>{value}</li>
+const SortableItem = SortableElement(({index, value}) =>
+  <ListGroupItem><QuizItemBlock id={index} value={value} /></ListGroupItem>
 );
 
 const SortableList = SortableContainer(({items, dict}) => {
   return (
-    <ul>
+    <ListGroup>
       {items.map((value, index) => (
         <SortableItem key={`item-${index}`} index={index} value={ dict[value] } />
       ))}
-    </ul>
+    </ListGroup>
   );
 });
 
@@ -30,9 +29,9 @@ class QuizBlocks extends Component{
       };
 
     onSortEnd = ({oldIndex, newIndex}) => {
-        console.log('props --> '+this.props.listVisible);
+        //console.log('props --> '+this.props.listVisible);
         //this.setState({items: this.props.listVisible})
-        console.log('items old --> '+this.state.items+' || '+oldIndex+' || '+newIndex);
+        //console.log('items old --> '+this.state.items+' || '+oldIndex+' || '+newIndex);
         this.setState({
           items: arrayMove(this.state.items, oldIndex, newIndex),
         });
