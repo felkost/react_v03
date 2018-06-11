@@ -1,26 +1,73 @@
-import React from 'react';
-import ContentWrapper from '../Layout/ContentWrapper';
+import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { Row, Col, Card, CardTitle, CardBody, CardHeader, CardText, Input, FormGroup, Button } from 'reactstrap';
+import { Row, Col, Card, CardTitle, CardBody, CardHeader, ListGroup, ListGroupItem, Button} from 'reactstrap';
 
-const QuizBlocks = () => (
-    <Card outline color="primary" className="mb-3">
-        <CardHeader className="text-white bg-primary">Blocks of the questionnaire</CardHeader>
-        <CardBody>
-                    <Row><Col>
-                    <ul className="list-group">
-                        <li className="list-group-item">Welcom</li>
-                        <li className="list-group-item">Short text</li>
-                        <li className="list-group-item">Long text</li>
-                        <li className="list-group-item">Multiple choice</li>
-                        <li className="list-group-item">Picture choice</li>
-                        <li className="list-group-item">Yes/No</li>
-                        <li className="list-group-item">Thank you screen</li>
-                    </ul>                   
+import QuizItemBlock from './QuizItemBlock';
+
+import {actionUpdateOrderListBloks} from '../../actions/Quiz/QuizAction'
+
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+
+const SortableItem = SortableElement(({value}) =>
+  <li>{value}</li>
+);
+
+const SortableList = SortableContainer(({items, dict}) => {
+  return (
+    <ul>
+      {items.map((value, index) => (
+        <SortableItem key={`item-${index}`} index={index} value={ dict[value] } />
+      ))}
+    </ul>
+  );
+});
+
+class QuizBlocks extends Component{ 
+    state = {
+        items: [],
+        dictionary: []
+      };
+
+    onSortEnd = ({oldIndex, newIndex}) => {
+        console.log('props --> '+this.props.listVisible);
+        //this.setState({items: this.props.listVisible})
+        console.log('items old --> '+this.state.items+' || '+oldIndex+' || '+newIndex);
+        this.setState({
+          items: arrayMove(this.state.items, oldIndex, newIndex),
+        });
+
+        console.log('items new --> '+this.state.items+' || '+oldIndex+' || '+newIndex);
+        this.props.updateList(this.state.items)
+    };
+ 
+    componentWillReceiveProps(nextProps) {
+        this.setState({items: nextProps.listVisible});
+        this.setState({dictionary: nextProps.dictionary});
+    }
+      
+    render(){ 
+        return(
+            <Card outline color="primary" className="mb-3">
+                <CardHeader className="text-white bg-primary">Blocks of the questionnaire</CardHeader>
+                <CardBody>
+                    <Row><Col > 
+                    <SortableList items={ this.state.items }  dict={ this.state.dictionary } onSortEnd={this.onSortEnd} />    
                     </Col></Row>
-    </CardBody>
-    </Card>
-)
+            </CardBody>
+            </Card>
+        )
+    }
+}
 
-export default QuizBlocks;
+
+
+const mapStateToProps = (state) => ({
+    listVisible : state.rListBlocks.listVisible,
+    dictionary : state.rListBlocks.dictionary
+})
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    updateList: list => dispatch(actionUpdateOrderListBloks(list))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizBlocks);

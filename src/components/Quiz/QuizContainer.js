@@ -20,8 +20,8 @@ class QuizContainer extends Component {
         <Row>
                 <Col>
                     <div className="content-heading">
-                        <div>Save
-                            
+                        <div>
+                        <button type="button" className="btn ">Save</button>
                         </div>
                     </div>
                 </Col>            
@@ -30,18 +30,18 @@ class QuizContainer extends Component {
                 <Col>
                     <QuizPrewie />       
                 </Col>
-                <Col>
+                <Col md={3}>
                     <QuizBlocks />
                 </Col>
                 { (this.props.isPress.button==ADD_BLOCK && this.props.isPress.isPress==true)? 
-                   <Col ><QuizEditBlock /> </Col> 
-                   : <Col ></Col> } 
+                   <Col ><QuizChooseBlocks /> </Col> 
+                   : <div></div> } 
                 { (this.props.isPress.button==EDIT_BLOCK && this.props.isPress.isPress==true)? 
-                    <Col ><QuizChooseBlocks /> </Col> 
-                    : <Col ></Col> } 
+                    <Col ><QuizEditBlock /> </Col> 
+                    : <div></div> } 
                 { (this.props.isPress.button==DESIGN_BLOCK && this.props.isPress.isPress==true)? 
                     <Col ><QuizDesignBlock /> </Col> 
-                    : <Col ></Col> }            
+                    : <div></div> }            
                 <Col className="col-1">
                     <QuizTools />
                 </Col>

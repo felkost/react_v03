@@ -9,8 +9,8 @@ const QuizDesignBlock = () => (
         <CardHeader className="text-white bg-primary">Edit design of the block</CardHeader>
         <CardBody>
                     <Row><Col>
-                    <ul class="list-group">
-                        <li class="list-group-item">Welcom</li>
+                    <ul className="list-group">
+                        <li className="list-group-item">Welcom</li>
                     </ul>                   
                     </Col></Row>
     </CardBody>

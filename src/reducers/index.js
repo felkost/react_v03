@@ -7,6 +7,7 @@ import campaigns from './Campaigns/campaigns';
 import slides from './Campaigns/slides';
 
 import rToolsState from './Quiz/rToolsState';
+import rListBlocks from './Quiz/rListBlocks';
 
 export default combineReducers({
     auth,    
@@ -16,5 +17,6 @@ export default combineReducers({
     campaigns,
     slides,
 
-    rToolsState
+    rToolsState,
+    rListBlocks
 });

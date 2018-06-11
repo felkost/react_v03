@@ -9,11 +9,11 @@ const QuizEditBlock = () => (
         <CardHeader className="text-white bg-primary">Edit block</CardHeader>
         <CardBody>
                     <Row><Col>
-                    <ul class="list-group">
-                    <li class="list-group-item">Text</li>
-                    <li class="list-group-item">Image</li>
-                    <li class="list-group-item">Video</li>
-                    <li class="list-group-item">Delete</li>
+                    <ul className="list-group">
+                    <li className="list-group-item">Text</li>
+                    <li className="list-group-item">Image</li>
+                    <li className="list-group-item">Video</li>
+                    <li className="list-group-item">Delete</li>
                     </ul>                   
                     </Col></Row>
     </CardBody>
