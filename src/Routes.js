@@ -19,7 +19,7 @@ import NotFound from './components/Pages/NotFound';
 import Error500 from './components/Pages/Error500';
 import Maintenance from './components/Pages/Maintenance';
 
-import QuizContainer from './components/Quiz/QuizContainer';
+import QMainContainer from './components/Quiz/QMainContainer';
 
 // List of routes that uses the page layout
 // listed here to Switch between layouts
@@ -82,7 +82,7 @@ const Routes = ({ location }) => {
                             <Route path="/campaigns/:itemId" component={CampaignForm} />
                             <Route path="/analitics" component={Analitics} />
 
-                            <Route path="/questionnaire" component={QuizContainer}/>
+                            <Route path="/questionnaire" component={QMainContainer}/>
                         </Switch>
                     </div>
                 </CSSTransition>
