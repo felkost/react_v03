@@ -21,7 +21,7 @@
   "dependencies": {
     "animate.css": "3.5.2",
     "animo": "github:thrivingkings/animo.js",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "4.1.1",
     "bootstrap-daterangepicker": "^3.0.3",
     "bootstrap-filestyle": "github:markusslima/bootstrap-filestyle#v2.1.0",
